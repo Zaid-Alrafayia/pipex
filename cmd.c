@@ -14,7 +14,6 @@
 
 int	run_cmd(char *cmd_path, char **split_cmd, char **envp)
 {
-	ft_printf("%s\n%s", split_cmd[0], split_cmd[1]);
 	return (execve(cmd_path, split_cmd, envp));
 }
 

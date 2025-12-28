@@ -15,56 +15,53 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/wait.h>
 #include <unistd.h>
 
-// int	fork_cmd(char *path_cmd1, char *path_cmd2, char **envp, char *input)
-//{
-//	int	fid;
-//	int	fd[2];
-//	int	afd;
-//
-//	afd = open(input, O_RDONLY);
-//	if (pipe(fd) == -1)
-//	{
-//		perror("pipe error");
-//		return (0);
-//	}
-//	fid = fork();
-//	if (fid == 0)
-//	{
-//		close(fd[0]);
-//		dup2(afd, fd[1]);
-//		write(fd[1], &afd, 4);
-//		ft_printf("%s\n", get_next_line(afd));
-//		ft_printf("fid = 0\n");
-//		run_cmd(path_cmd2, envp);
-//
-//	}
-//	else
-//	{
-//		ft_printf("%s\n", get_next_line(fd[1]));
-//		ft_printf("fid = 1\n");
-//		run_cmd(path_cmd1, envp);
-//		pipe(fd);
-//	}
-//	return (0);
-//}
+int	fork_cmd(char **split_cmd1, char **split_cmd2, char **envp, char *input)
+{
+	int		fid;
+	int		fd[2];
+	int		infd;
+	char	*path_cmd1;
+	char	*path_cmd2;
+	int		pid;
+
+	path_cmd1 = check_path(split_cmd1[0], envp);
+	path_cmd2 = check_path(split_cmd2[0], envp);
+	infd = open(input, O_RDONLY);
+	fid = fork();
+	if (fid == 0)
+	{
+		close(fd[0]);
+		dup2(infd, STDIN_FILENO);
+		dup2(fd[1], STDOUT_FILENO);
+		run_cmd(path_cmd1, split_cmd1, envp);
+	}
+	pid = fork();
+	if (pid == 0)
+	{
+		close(fd[1]);
+		dup2(fd[0], STDOUT_FILENO);
+		run_cmd(path_cmd2, split_cmd2, envp);
+	}
+	wait(NULL);
+	close(infd);
+	close(fd[0]);
+	close(fd[1]);
+	return (0);
+}
 
 int	main(int argc, char *argv[], char *envp[])
 {
-	char	*path_cmd1;
-	char	*path_cmd2;
-	char	**split_cmd;
-	int		fd[2];
+	char	**split_cmd1;
+	char	**split_cmd2;
 
 	if (argc >= 2)
 	{
-		path_cmd1 = check_path(argv[2], envp);
-		path_cmd2 = check_path(argv[3], envp);
-		split_cmd = cmd_split(argv[2]);
-		// fork_cmd(path_cmd1, path_cmd2, envp, argv[1]);
-		run_cmd(path_cmd1, split_cmd, envp);
-		free(path_cmd1);
+		split_cmd1 = cmd_split(argv[2]);
+		split_cmd2 = cmd_split(argv[3]);
+		fork_cmd(split_cmd1, split_cmd2, envp, argv[1]);
 	}
 	return (0);
 }
