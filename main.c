@@ -29,7 +29,19 @@ int	fork_cmd(char **split_cmd1, char **split_cmd2, char **envp, char **argv)
 	int		outfd;
 
 	path_cmd1 = check_path(split_cmd1[0], envp);
+	if (!path_cmd1)
+	{
+		ft_putstr_fd("command not found: ", 2);
+		ft_putendl_fd(split_cmd1[0], 2);
+		exit(127);
+	}
 	path_cmd2 = check_path(split_cmd2[0], envp);
+	if (!path_cmd1)
+	{
+		ft_putstr_fd("command not found: ", 2);
+		ft_putendl_fd(split_cmd2[0], 2);
+		exit(127);
+	}
 	infd = open(argv[1], O_RDONLY);
 	if (infd < 0)
 	{
@@ -54,6 +66,7 @@ int	fork_cmd(char **split_cmd1, char **split_cmd2, char **envp, char **argv)
 		dup2(infd, STDIN_FILENO);
 		dup2(fd[1], STDOUT_FILENO);
 		close(infd);
+		close(fd[1]);
 		close(outfd);
 		run_cmd(path_cmd1, split_cmd1, envp);
 		exit(1);
@@ -74,6 +87,8 @@ int	fork_cmd(char **split_cmd1, char **split_cmd2, char **envp, char **argv)
 	close(outfd);
 	close(fd[0]);
 	close(fd[1]);
+	free(path_cmd1);
+	free(path_cmd2);
 	free_arr(split_cmd1);
 	free_arr(split_cmd2);
 	waitpid(fid, NULL, 0);
