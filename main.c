@@ -31,9 +31,9 @@ int	fork_cmd(char **split_cmd1, char **split_cmd2, char **envp, char **argv)
 	path_cmd1 = check_path(split_cmd1[0], envp);
 	path_cmd2 = check_path(split_cmd2[0], envp);
 	infd = open(argv[1], O_RDONLY);
-	outfd = open(argv[4], O_RDONLY);
-	fid = fork();
+	outfd = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	pipe(fd);
+	fid = fork();
 	if (fid == 0)
 	{
 		close(fd[0]);
@@ -48,6 +48,7 @@ int	fork_cmd(char **split_cmd1, char **split_cmd2, char **envp, char **argv)
 	{
 		close(fd[1]);
 		dup2(fd[0], STDIN_FILENO);
+		dup2(outfd, STDOUT_FILENO);
 		close(infd);
 		close(outfd);
 		run_cmd(path_cmd2, split_cmd2, envp);
@@ -66,7 +67,7 @@ int	main(int argc, char *argv[], char *envp[])
 	char	**split_cmd1;
 	char	**split_cmd2;
 
-	if (argc >= 2)
+	if (argc == 5)
 	{
 		split_cmd1 = cmd_split(argv[2]);
 		split_cmd2 = cmd_split(argv[3]);
