@@ -31,8 +31,22 @@ int	fork_cmd(char **split_cmd1, char **split_cmd2, char **envp, char **argv)
 	path_cmd1 = check_path(split_cmd1[0], envp);
 	path_cmd2 = check_path(split_cmd2[0], envp);
 	infd = open(argv[1], O_RDONLY);
+	if (infd < 0)
+	{
+		perror(argv[1]);
+		return (1);
+	}
 	outfd = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	pipe(fd);
+	if (outfd < 0)
+	{
+		perror(argv[4]);
+		return (1);
+	}
+	if (pipe(fd) == -1)
+	{
+		perror("pipe");
+		return (1);
+	}
 	fid = fork();
 	if (fid == 0)
 	{
@@ -42,6 +56,7 @@ int	fork_cmd(char **split_cmd1, char **split_cmd2, char **envp, char **argv)
 		close(infd);
 		close(outfd);
 		run_cmd(path_cmd1, split_cmd1, envp);
+		exit(1);
 	}
 	pid = fork();
 	if (pid == 0)
@@ -50,13 +65,17 @@ int	fork_cmd(char **split_cmd1, char **split_cmd2, char **envp, char **argv)
 		dup2(fd[0], STDIN_FILENO);
 		dup2(outfd, STDOUT_FILENO);
 		close(infd);
+		close(fd[0]);
 		close(outfd);
 		run_cmd(path_cmd2, split_cmd2, envp);
+		exit(1);
 	}
 	close(infd);
 	close(outfd);
 	close(fd[0]);
 	close(fd[1]);
+	free_arr(split_cmd1);
+	free_arr(split_cmd2);
 	waitpid(fid, NULL, 0);
 	waitpid(pid, NULL, 0);
 	return (0);
