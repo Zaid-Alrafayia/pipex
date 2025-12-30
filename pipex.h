@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 17:49:27 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/12/23 20:42:08 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/12/30 01:32:07 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,8 @@ char	*get_path(char *envp[]);
 char	*check_path(char *cmd, char *envp[]);
 char	**cmd_split(char *cmd);
 
+void	pipex(char **envp, char **argv);
+void	error_exit(char *msg, int code);
+void	child_one(int *fd, int *filed, char **envp, char **argv);
+void	child_two(int *fd, int *filed, char **envp, char **argv);
 #endif // !PIPEX_H
