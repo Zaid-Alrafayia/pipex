@@ -23,7 +23,7 @@ char	*get_path(char *envp[]);
 char	*check_path(char *cmd, char *envp[]);
 char	**cmd_split(char *cmd);
 
-void	pipex(char **envp, char **argv);
+void	pipex(char **envp, char **argv, int argc);
 void	error_exit(char *msg, int code);
 void	child_one(int *fd, int *filed, char **envp, char *argv);
 void	child_two(int *fd, int *filed, char **envp, char *argv);
