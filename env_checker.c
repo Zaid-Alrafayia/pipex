@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 19:30:23 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/12/23 20:45:54 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2025/12/31 16:45:27 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pipex.h"
@@ -42,20 +42,20 @@ void	free_arr(char **arr)
 	free(arr);
 }
 
-char	*check_path(char *cmd, char *envp[])
+char	*check_path(t_pipex *px, char *cmd)
 {
 	char	*paths;
 	char	**arr;
 	char	*search_path;
-	int		i;
+	int		j;
 	char	*tmp;
 
-	i = 0;
-	paths = get_path(envp);
+	j = 0;
+	paths = get_path(px->envp);
 	arr = ft_split(paths, ':');
-	while (arr[i])
+	while (arr[j])
 	{
-		tmp = ft_strjoin(arr[i], "/");
+		tmp = ft_strjoin(arr[j], "/");
 		search_path = ft_strjoin(tmp, cmd);
 		if (access(search_path, F_OK | X_OK) != -1)
 		{
@@ -63,10 +63,10 @@ char	*check_path(char *cmd, char *envp[])
 			free_arr(arr);
 			return (search_path);
 		}
-		i++;
+		j++;
 		free(tmp);
 		free(search_path);
 	}
-	free_arr(arr);
+	error_cmd(arr);
 	return (NULL);
 }

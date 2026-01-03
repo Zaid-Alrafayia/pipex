@@ -1,43 +1,49 @@
-NAME = libex.a
+NAME        = pipex
+NAME_BONUS  = pipex_bonus
 
-CC = cc
-CFLAGS = -g -Wall -Werror -Wextra -I. -I./libft
+CC          = cc
+CFLAGS      = -Wall -Wextra -Werror
 
-AR = ar rcs
-RM = rm -f
+LIBFT_DIR   = libft
+LIBFT       = $(LIBFT_DIR)/libft.a
 
-SRCS = 
+SRCS        = pipex.c \
+              process.c \
+              file_check.c \
+              cmd.c \
+              env_checker.c
 
-PRINT_SRCS = ft_printf.c hexconvert.c point_conv.c print_num.c \
-			 print_str.c print_unum.c ft_abs.c
-FT_SRCS = ft_itoa.c ft_split.c ft_strncmp.c \
-	ft_atoi.c ft_memchr.c ft_strchr.c ft_strnstr.c \
-	ft_bzero.c ft_memcpy.c ft_strdup.c ft_strrchr.c \
-	ft_calloc.c  ft_memmove.c ft_striteri.c ft_strtrim.c \
-	ft_isalnum.c  ft_memset.c ft_strjoin.c ft_substr.c \
-	ft_isalpha.c  ft_putchar_fd.c ft_strlcat.c ft_tolower.c \
-	ft_isascii.c  ft_putendl_fd.c ft_strlcpy.c ft_toupper.c \
-	ft_isdigit.c  ft_putnbr_fd.c ft_strlen.c ft_memcmp.c \
-	ft_isprint.c  ft_putstr_fd.c ft_strmapi.c
+SRCS_BONUS  = pipex_bonus.c \
+              process_bonus.c \
+              file_check_bonus.c \
+              cmd_bonus.c \
+              env_checker_bonus.c
 
+OBJS        = $(SRCS:.c=.o)
+OBJS_BONUS  = $(SRCS_BONUS:.c=.o)
 
-FT_OBJS = $(addprefix libft/, $(FT_SRCS:.c=.o))
-OBJS = $(SRCS:.c=.o)
+all: $(LIBFT) $(NAME)
 
-libft/%.o: libft/%.c
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+
+%.o: %.c pipex.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-all: $(NAME)
-
-${NAME}: $(OBJS) $(FT_OBJS)
-	$(AR) $(NAME) $(OBJS) $(FT_OBJS)
+bonus: $(LIBFT) $(OBJS_BONUS)
+	$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) -o $(NAME_BONUS)
 
 clean:
-	$(RM) $(OBJS) $(FT_OBJS)
+	rm -f $(OBJS) $(OBJS_BONUS)
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -f $(NAME) $(NAME_BONUS)
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+. PHONY: all clean fclean re bonus

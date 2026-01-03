@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 17:49:27 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/12/30 01:32:07 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2026/01/01 02:01:44 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,31 @@
 # include <sys/wait.h>
 # include <unistd.h>
 
-int		run_cmd(char *cmd_path, char **split_cmd, char **envp);
-void	free_arr(char **arr);
-char	*get_path(char *envp[]);
-char	*check_path(char *cmd, char *envp[]);
-char	**cmd_split(char *cmd);
+typedef struct s_pipex
+{
+	int		infd;
+	int		outfd;
+	int		fd[2];
+	int		argc;
+	int		prev_fd;
+	char	**argv;
+	char	**envp;
+	int		here_doc;
+}			t_pipex;
+// file_check.c
+void		access_file(t_pipex *px);
 
-void	pipex(char **envp, char **argv, int argc);
-void	error_exit(char *msg, int code);
-void	child_one(int *fd, int *filed, char **envp, char *argv);
-void	child_two(int *fd, int *filed, char **envp, char *argv);
-void	child_middle(int *fd, int *filed, char **envp, char *argv);
+// cmd.c
+int			run_cmd(char *cmd_path, char **split_cmd, char **envp);
+void		error_exit(char *msg, int code);
+char		**cmd_split(char *cmd);
+void		error_cmd(char **arr);
 
+// env_checker.c
+char		*get_path(char *envp[]);
+void		free_arr(char **arr);
+char		*check_path(t_pipex *px, char *cmd);
+
+// process.c
+void		child_process(t_pipex *px, int i);
 #endif // !PIPEX_H

@@ -5,67 +5,72 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/22 17:48:47 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/12/30 01:32:24 by zaalrafa         ###   ########.fr       */
+/*   Created: 2025/12/30 20:10:25 by zaalrafa          #+#    #+#             */
+/*   Updated: 2026/01/01 02:18:32 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include "libft/libft.h"
 #include "pipex_bonus.h"
-#include <sys/wait.h>
 
-void	pipe_loop(int *fd, int *filed, char **argv, char **envp)
+void	pipe_loop(t_pipex *px, int i)
 {
-	int	i;
-	int	pid1;
-	int	pid2;
 	int	pid;
 
-	i = 2;
-	pid1 = fork();
-	if (pid1 == 0)
-		child_one(fd, filed, envp, argv[2]);
-	printf("child_one executed\n");
-	while (i < filed[2] - 2)
+	while (i < px->argc - 1)
 	{
-		if (pipe(fd) == -1)
-			error_exit("pipe", 1);
+		if (i < px->argc - 2)
+		{
+			if (pipe(px->fd) == -1)
+				error_exit("pipex", 2);
+		}
 		pid = fork();
 		if (pid == 0)
-			child_middle(fd, filed, envp, argv[i]);
-		printf("child_%d executed\n", i);
+			child_process(px, i);
+		close(px->prev_fd);
+		if (i < px->argc - 2)
+		{
+			close(px->fd[1]);
+			px->prev_fd = px->fd[0];
+		}
 		i++;
 	}
-	pid2 = fork();
-	if (pid2 == 0)
-		child_two(fd, filed, envp, argv[i]);
-	printf("child_two executed\n");
-	waitpid(pid2, NULL, 0);
 }
 
-void	pipex(char **envp, char **argv, int argc)
+void	pipex(t_pipex *px)
 {
-	int	fd[2];
-	int	filed[3];
+	int	i;
+	int	start;
 
-	filed[0] = open(argv[1], O_RDONLY);
-	filed[1] = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (filed[0] < 0 || filed[1] < 0)
-		error_exit("file", 1);
-	if (pipe(fd) == -1)
-		error_exit("pipe", 1);
-	filed[2] = argc;
-	pipe_loop(fd, filed, argv, envp);
-	close(filed[0]);
-	close(filed[1]);
-	close(fd[0]);
-	close(fd[1]);
+	if (px->here_doc)
+		start = 3;
+	else
+		start = 2;
+	i = start;
+	px->prev_fd = px->infd;
+	pipe_loop(px, i);
+	close(px->outfd);
+	i = start;
+	while (i++ < px->argc - 1)
+		wait(NULL);
 }
 
-int	main(int argc, char *argv[], char *envp[])
+int	main(int argc, char **argv, char **envp)
 {
-	if (argc >= 5)
+	t_pipex	px;
+
+	if (argc <= 5)
 	{
-		pipex(envp, argv, argc);
+		ft_putendl_fd("Usage: ./pipex infile cmd1 cmd2 outfile", 2);
+		return (1);
 	}
+	if (!ft_strncmp(argv[1], "here_doc", 10))
+		px.here_doc = 1;
+	else
+		px.here_doc = 0;
+	px.argc = argc;
+	px.argv = argv;
+	px.envp = envp;
+	access_file(&px);
+	pipex(&px);
 	return (0);
 }
