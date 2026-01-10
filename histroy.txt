@@ -1,0 +1,163 @@
+
+ 2489  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2492  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2494  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2496  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2498  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2500  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2502  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2503  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "gre hello" outfile
+ 2504  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile  "gre hello" outfile
+ 2505  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" 
+ 2507  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2509  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2511  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2513  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2515  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2517  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2519  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2521  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "cat" "grep hello" outfile
+ 2523  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "cat" "grep hello" outfile
+ 2525  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "/usr/bin/cat" "grep hello" outfile
+ 2526  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/usr/bin/cat" "grep hello" outfile
+ 2529  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/usr/bin/cat" "grep hello" outfile
+ 2531  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/usr/bin/cat" "grep hello" outfile
+ 2535  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/usr/bin/ls" "grep p" outfile
+ 2537  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./pipex intfile ls cat outfile" "grep p" outfile
+ 2539  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./pipex intfile ls cat outfile" "grep p" outfile
+ 2541  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./pipex intfile ls cat outfile" "grep p" outfile
+ 2543  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./pipex intfile ls cat outfile" "grep p" outfile
+ 2546  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./pipex intfile ls cat outfile" "grep p" outfile
+ 2548  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./pipex intfile ls cat outfile" "grep p" outfile
+ 2550  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./pipex intfile ls cat outfile" "grep p" outfile
+ 2553  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./pipex intfile ls cat outfile" "grep p" outfile
+ 2555  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./pipex intfile ls cat outfile" "grep p" outfile
+ 2557  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./pipex intfile ls cat outfile" "grep p" outfile
+ 2558  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2560  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2566  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2569  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2571  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2573  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2575  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2577  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2580  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2582  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2584  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2588  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2590  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2592  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2594  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2596  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2598  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2600  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2602  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2604  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2606  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2608  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2611  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2613  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2615  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2616  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "ls" "grep p" outfile
+ 2618  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "gre p" outfile
+ 2619  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2621  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2623  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2625  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2627  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2632  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2634  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2636  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2640  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2642  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2644  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2647  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2649  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2651  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2653  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2655  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2658  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2660  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2663  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2665  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2669  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2673  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2675  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2677  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2679  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2682  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2685  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2687  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "./ls" "grep p" outfile
+ 2688  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "ls" "grep p" outfile
+ 2690  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/usr/bin/brave-browser" "grep p" outfile
+ 2695  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/usr/bin/brave-browser" "grep p" outfile
+ 2697  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/usr/bin/brave-browser" "grep p" outfile
+ 2698  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2701  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2704  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2706  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2708  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2711  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2713  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2715  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2717  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2719  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2721  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2724  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2726  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2731  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2733  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2735  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2738  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2739  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "ls" "grep p" outfile
+ 2741  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "ls" "grep p" outfile
+ 2742  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2744  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex infile "/ls" "grep p" outfile
+ 2781  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "/ls" "tree" "grep p" outfile
+ 2783  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "/ls" "tree" "grep p" outfile
+ 2786  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "/ls" "tree" "grep p" outfile
+ 2787  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "ls" "tree" "grep p" outfile
+ 2790  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "ls" "tree" "grep p" outfile
+ 2792  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "ls" "tree" "grep p" outfile
+ 2795  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "ls" "tree" "grep p" outfile
+ 2796  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "ls" "tree" "cat" outfile
+ 2799  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "ls" "tree" "cat" outfile
+ 2804  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "ls" "tree" "cat" outfile
+ 2807  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "ls" "tree" "cat" outfile
+ 2808  valgrind --leak-check=full  --show-leak-kinds=all  --track-fds=yes --track-origins=yes ./pipex_bonus infile "ls" "grep p" "cat" outfile
+ 2849  valgrind --trace-children=yes --track-fds=yes ./pipex 
+ 2850  valgrind --trace-children=yes --track-fds=yes ./pipex fkd kdfl dfkl kldf
+ 2851  valgrind --trace-children=yes --track-fds=yes ./pipex "" "" "" ""
+ 2854  valgrind --trace-children=yes --track-fds=yes ./pipex "infile" "" "" "outfile"
+ 2855  valgrind --trace-children=yes --track-fds=yes ./pipex infile "" "" outfile
+ 2857  valgrind --trace-children=yes --track-fds=yes ./pipex infile "" "" outfile
+ 2859  valgrind --trace-children=yes --track-fds=yes ./pipex infile "ls" "" outfile
+ 2860  valgrind --trace-children=yes --track-fds=yes ./pipex infile "ls" "ls" outfile
+ 2862  valgrind ls
+ 2863  valgrind --trace-children=yes --track-fds=yes ./pipex infile "cat" "cat" outfile
+ 2868  valgrind --trace-children=yes --track-fds=yes ./pipex infile "cat" "./a.out" outfile
+ 2871  valgrind --trace-children=yes --track-fds=yes ./pipex infile "cat" "./a.out" outfile
+ 2874  valgrind --trace-children=yes --track-fds=yes ./pipex infile "cat" "./a.out" outfile
+ 2877  valgrind --trace-children=yes --track-fds=yes ./pipex infile "cat" "./a.out" outfile
+ 2879  valgrind --trace-children=yes --track-fds=yes ./pipex infile "cat" "./a.out" outfile
+ 2881  valgrind --trace-children=yes --track-fds=yes ./pipex infile "cat" "./a.outf" outfile
+ 2882  valgrind --trace-children=yes --track-fds=yes ./pipex infile "cat" "ls -l -a" outfile
+ 2884  valgrind ls -l -a
+ 2885  valgrind --trace-children=yes --track-fds=yes ./pipex infile "cat -e" "cat -e" outfile
+ 2888  valgrind --trace-children=yes --track-fds=yes ./pipex infile "cat -e" "cat -e" outfile
+ 2891  valgrind --trace-children=yes --track-fds=yes ./pipex infile "cat -e" "cat -e" outfile
+ 2892  valgrind --trace-children=yes --track-fds=yes ./pipex infile "cat -e" "/usr/bin/cat -e" outfile1
+ 2894  valgrind --trace-children=yes --track-fds=yes ./pipex infile "cat -e" "/usr/bin/cat -e" outfile1
+ 2896  valgrind --trace-children=yes --track-fds=yes ./pipex
+ 2897  valgrind --trace-children=yes --track-fds=yes ./pipex f f f f f
+ 2901  valgrind --trace-children=yes --track-fds=yes ./pipex infile cat cat outfile
+ 2902  valgrind --trace-children=yes --track-fds=yes ./pipex infile cat cat outfile5
+ 2906  valgrind --trace-children=yes --track-fds=yes ./pipex infile cat cat outfile6
+ 2908  valgrind --trace-children=yes --track-fds=yes ./pipex infile cat "sleep 50" outfile6
+ 2911  valgrind --trace-children=yes --track-fds=yes ./pipex infile cat "sleep 50" outfile6
+ 2913  valgrind --trace-children=yes --track-fds=yes ./pipex infile cat "sleep 50" outfile6
+ 2915  valgrind --trace-children=yes --track-fds=yes ./pipex infile "sleep 40" "cat" outfile6
+ 2918  valgrind --trace-children=yes --track-fds=yes ./pipex infile "sleep 40" "ls" outfile6
+ 2922  valgrind --trace-children=yes --track-fds=yes ./pipex infile "sleep 40" "ls" outfile6
+ 2924  valgrind --trace-children=yes --track-fds=yes ./pipex infile "sleep 40" "ls" outfile6
+ 2991  valgrind --trace-children=yes --track-fds=yes ./pipex "infile" "" "" "outfile"
