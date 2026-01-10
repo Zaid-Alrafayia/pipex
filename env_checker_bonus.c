@@ -70,3 +70,34 @@ char	*check_path(t_pipex *px, char *cmd)
 	error_cmd(arr);
 	return (NULL);
 }
+
+int	has_path(char *cmd)
+{
+	int	i;
+
+	if (!cmd)
+		return (0);
+	i = 0;
+	while (cmd[i])
+	{
+		if (cmd[i] == '/')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+char	*cmd_path(t_pipex *px, char *cmd)
+{
+	char	*path;
+
+	if (has_path(cmd))
+	{
+		if (access(cmd, F_OK | X_OK) == -1)
+			error_cmd(NULL);
+		path = cmd;
+	}
+	else
+		path = check_path(px, cmd);
+	return (path);
+}

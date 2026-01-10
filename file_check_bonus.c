@@ -20,7 +20,7 @@ void	lim_handler(t_pipex *px)
 	int		fd[2];
 
 	if (pipe(fd) == -1)
-		error_exit("pipe", 1);
+		error_exit(px, "pipe", 1);
 	len = ft_strlen(px->argv[2]);
 	while (1)
 	{
@@ -55,5 +55,5 @@ void	access_file(t_pipex *px)
 				0644);
 	}
 	if (px->outfd < 0 || px->infd < 0)
-		error_exit("file", 1);
+		error_exit(px, "file", 1);
 }

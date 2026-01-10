@@ -15,11 +15,11 @@
 
 void	child_process(t_pipex *px, int i)
 {
-	char	*cmd_path;
+	char	*cmd_pt;
 	char	**split_cmd;
 
 	split_cmd = cmd_split(px->argv[i]);
-	cmd_path = check_path(px, split_cmd[0]);
+	cmd_pt = cmd_path(px, split_cmd[0]);
 	dup2(px->prev_fd, STDIN_FILENO);
 	close(px->prev_fd);
 	if (i == px->argc - 2)
@@ -32,6 +32,6 @@ void	child_process(t_pipex *px, int i)
 	}
 	close(px->infd);
 	close(px->outfd);
-	execve(cmd_path, split_cmd, px->envp);
+	execve(cmd_pt, split_cmd, px->envp);
 	exit(1);
 }

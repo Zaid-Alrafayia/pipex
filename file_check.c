@@ -17,5 +17,5 @@ void	access_file(t_pipex *px)
 	px->outfd = open(px->argv[px->argc - 1], O_WRONLY | O_CREAT | O_TRUNC,
 			0644);
 	if (px->outfd < 0 || px->infd < 0)
-		error_exit("file", 1);
+		error_exit(px, "file", 1);
 }

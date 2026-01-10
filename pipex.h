@@ -33,7 +33,7 @@ void		access_file(t_pipex *px);
 
 // cmd.c
 int			run_cmd(char *cmd_path, char **split_cmd, char **envp);
-void		error_exit(char *msg, int code);
+void		error_exit(t_pipex *px, char *msg, int code);
 char		**cmd_split(char *cmd);
 void		error_cmd(char **arr);
 
@@ -41,7 +41,8 @@ void		error_cmd(char **arr);
 char		*get_path(char *envp[]);
 void		free_arr(char **arr);
 char		*check_path(t_pipex *px, char *cmd);
-
+int			has_path(char *cmd);
+char		*cmd_path(t_pipex *px, char *cmd);
 // process.c
 void		child_process(t_pipex *px, int i);
 #endif // !PIPEX_H

@@ -24,8 +24,10 @@ void	error_cmd(char **arr)
 	exit(127);
 }
 
-void	error_exit(char *msg, int code)
+void	error_exit(t_pipex *px, char *msg, int code)
 {
+	close(px->infd);
+	close(px->outfd);
 	perror(msg);
 	exit(code);
 }

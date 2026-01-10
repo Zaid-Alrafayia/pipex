@@ -19,7 +19,7 @@ void	pipex(t_pipex *px)
 	int	pid2;
 
 	if (pipe(px->fd) == -1)
-		error_exit("pipex", 2);
+		error_exit(px, "pipex", 2);
 	pid1 = fork();
 	if (pid1 == 0)
 		child_process(px, 2);

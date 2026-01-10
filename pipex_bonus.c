@@ -21,7 +21,7 @@ void	pipe_loop(t_pipex *px, int i)
 		if (i < px->argc - 2)
 		{
 			if (pipe(px->fd) == -1)
-				error_exit("pipex", 2);
+				error_exit(px, "pipex", 2);
 		}
 		pid = fork();
 		if (pid == 0)
