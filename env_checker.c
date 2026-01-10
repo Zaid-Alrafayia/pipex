@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 19:30:23 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/12/31 16:45:27 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2026/01/10 14:53:04 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pipex.h"
@@ -42,17 +42,12 @@ void	free_arr(char **arr)
 	free(arr);
 }
 
-char	*check_path(t_pipex *px, char *cmd)
+char	*search_func(char *search_path, char **arr, char *cmd)
 {
-	char	*paths;
-	char	**arr;
-	char	*search_path;
 	int		j;
 	char	*tmp;
 
 	j = 0;
-	paths = get_path(px->envp);
-	arr = ft_split(paths, ':');
 	while (arr[j])
 	{
 		tmp = ft_strjoin(arr[j], "/");
@@ -67,37 +62,28 @@ char	*check_path(t_pipex *px, char *cmd)
 		free(tmp);
 		free(search_path);
 	}
-	error_cmd(arr);
 	return (NULL);
 }
 
-int	has_path(char *cmd)
+char	*check_path(t_pipex *px, char *cmd)
 {
-	int	i;
+	char	*paths;
+	char	**arr;
+	char	*search_path;
 
-	if (!cmd)
-		return (0);
-	i = 0;
-	while (cmd[i])
+	search_path = NULL;
+	paths = get_path(px->envp);
+	if (!paths)
+		return (NULL);
+	arr = ft_split(paths, ':');
+	if (!arr)
 	{
-		if (cmd[i] == '/')
-			return (1);
-		i++;
+		close_fd(px, 0);
+		return (NULL);
 	}
-	return (0);
-}
-
-char	*cmd_path(t_pipex *px, char *cmd)
-{
-	char	*path;
-
-	if (has_path(cmd))
-	{
-		if (access(cmd, F_OK | X_OK) == -1)
-			error_cmd(NULL);
-		path = cmd;
-	}
-	else
-		path = check_path(px, cmd);
-	return (path);
+	search_path = search_func(search_path, arr, cmd);
+	if (search_path)
+		return (search_path);
+	free_arr(arr);
+	return (NULL);
 }

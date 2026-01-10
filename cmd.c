@@ -19,9 +19,16 @@ int	run_cmd(char *cmd_path, char **split_cmd, char **envp)
 
 void	error_cmd(char **arr)
 {
-	ft_putstr_fd("command not found:  ", 2);
-	ft_putendl_fd(arr[0], 2);
-	free_arr(arr);
+	if (arr && arr[0])
+	{
+		ft_putstr_fd("command not found:  ", 2);
+		ft_putendl_fd(arr[0], 2);
+		free_arr(arr);
+	}
+	else
+	{
+		ft_putendl_fd("command not found", 2);
+	}
 	exit(127);
 }
 

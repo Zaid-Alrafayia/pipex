@@ -11,7 +11,8 @@ SRCS        = pipex.c \
               process.c \
               file_check.c \
               cmd.c \
-              env_checker.c
+              env_checker.c \
+							path_check.c
 
 SRCS_BONUS  = pipex_bonus.c \
               process_bonus.c \

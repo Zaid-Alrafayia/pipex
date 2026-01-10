@@ -6,7 +6,7 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 17:49:27 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/12/31 16:45:07 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2026/01/10 14:27:56 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,8 @@ int			has_path(char *cmd);
 char		*cmd_path(t_pipex *px, char *cmd);
 // process.c
 void		child_process(t_pipex *px, int i);
+void		close_fd(t_pipex *px, int a);
+// path_check.c
+char		*cmd_path(t_pipex *px, char *cmd);
+int			has_path(char *cmd);
 #endif // !PIPEX_H
