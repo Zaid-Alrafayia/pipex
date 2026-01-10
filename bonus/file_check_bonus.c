@@ -1,16 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_check.c                                       :+:      :+:    :+:   */
+/*   file_check_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 20:31:03 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/12/30 21:11:55 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2026/01/10 15:24:55 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
-#include "pipex_bonus.h"
+#include "../pipex_bonus.h"
 #include <fcntl.h>
 
 void	lim_handler(t_pipex *px)

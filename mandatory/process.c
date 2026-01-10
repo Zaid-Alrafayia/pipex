@@ -6,10 +6,10 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 20:51:45 by zaalrafa          #+#    #+#             */
-/*   Updated: 2026/01/10 14:30:15 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2026/01/10 15:24:27 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "pipex.h"
+#include "../pipex.h"
 #include <stdlib.h>
 #include <unistd.h>
 

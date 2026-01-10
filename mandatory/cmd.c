@@ -6,10 +6,10 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 20:35:56 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/12/31 16:44:53 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2026/01/10 15:23:32 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "pipex.h"
+#include "../pipex.h"
 #include <unistd.h>
 
 int	run_cmd(char *cmd_path, char **split_cmd, char **envp)

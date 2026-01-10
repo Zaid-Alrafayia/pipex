@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process.c                                          :+:      :+:    :+:   */
+/*   process_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 20:51:45 by zaalrafa          #+#    #+#             */
-/*   Updated: 2025/12/31 16:45:50 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2026/01/10 15:29:07 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "pipex_bonus.h"
-#include <stdlib.h>
-#include <unistd.h>
+#include "../pipex_bonus.h"
+
+void	close_fd(t_pipex *px, int a)
+{
+	close(px->fd[0]);
+	close(px->fd[1]);
+	if (a)
+	{
+		close(px->infd);
+		close(px->outfd);
+	}
+}
 
 void	child_process(t_pipex *px, int i)
 {
@@ -19,6 +28,11 @@ void	child_process(t_pipex *px, int i)
 	char	**split_cmd;
 
 	split_cmd = cmd_split(px->argv[i]);
+	if (!split_cmd)
+	{
+		close_fd(px, 0);
+		error_exit(px, "cmd split error", 2);
+	}
 	cmd_pt = cmd_path(px, split_cmd[0]);
 	dup2(px->prev_fd, STDIN_FILENO);
 	close(px->prev_fd);

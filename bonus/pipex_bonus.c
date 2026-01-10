@@ -6,11 +6,10 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 20:10:25 by zaalrafa          #+#    #+#             */
-/*   Updated: 2026/01/01 02:18:32 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2026/01/10 15:25:10 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
-#include "pipex_bonus.h"
+#include "../pipex_bonus.h"
 
 void	pipe_loop(t_pipex *px, int i)
 {

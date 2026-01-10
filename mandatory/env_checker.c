@@ -6,10 +6,10 @@
 /*   By: zaalrafa <zaalrafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 19:30:23 by zaalrafa          #+#    #+#             */
-/*   Updated: 2026/01/10 14:53:04 by zaalrafa         ###   ########.fr       */
+/*   Updated: 2026/01/10 15:23:40 by zaalrafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "pipex.h"
+#include "../pipex.h"
 #include <unistd.h>
 
 char	*get_path(char *envp[])
