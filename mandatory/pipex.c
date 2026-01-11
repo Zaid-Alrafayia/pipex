@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "../pipex.h"
-#include <stdio.h>
-#include <sys/wait.h>
-#include <unistd.h>
 
 void	pipex(t_pipex *px)
 {
@@ -24,6 +21,7 @@ void	pipex(t_pipex *px)
 	pid1 = fork();
 	if (pid1 == 0)
 		child_process(px, 2);
+	waitpid(pid1, NULL, 0);
 	pid2 = fork();
 	if (pid2 == 0)
 		child_process(px, 3);
@@ -31,7 +29,6 @@ void	pipex(t_pipex *px)
 	close(px->fd[1]);
 	close(px->outfd);
 	close(px->infd);
-	waitpid(pid1, NULL, 0);
 	waitpid(pid2, NULL, 0);
 }
 
@@ -47,9 +44,9 @@ int	main(int argc, char **argv, char **envp)
 	px.argc = argc;
 	px.argv = argv;
 	px.envp = envp;
-	if (!argv[1] || !argv[2] || !argv[3] || !argv[4])
+	if (!*argv[1] || !*argv[2] || !*argv[3] || !*argv[4])
 	{
-		perror("ERROR INPUT");
+		ft_putendl_fd("Usage: ./pipex infile cmd1 cmd2 outfile", 2);
 		return (1);
 	}
 	access_file(&px);
