@@ -21,7 +21,6 @@ void	pipex(t_pipex *px)
 	pid1 = fork();
 	if (pid1 == 0)
 		child_process(px, 2);
-	waitpid(pid1, NULL, 0);
 	pid2 = fork();
 	if (pid2 == 0)
 		child_process(px, 3);
@@ -29,7 +28,8 @@ void	pipex(t_pipex *px)
 	close(px->fd[1]);
 	close(px->outfd);
 	close(px->infd);
-	waitpid(pid2, NULL, 0);
+	while (waitpid(-1, NULL, 0) > 0)
+		;
 }
 
 int	main(int argc, char **argv, char **envp)

@@ -69,6 +69,11 @@ int	main(int argc, char **argv, char **envp)
 	px.argc = argc;
 	px.argv = argv;
 	px.envp = envp;
+	if (!*argv[1] || !*argv[2] || !*argv[3] || !*argv[4] || !*argv[4])
+	{
+		ft_putendl_fd("Usage: ./pipex infile cmd1 cmd2 outfile", 2);
+		return (1);
+	}
 	access_file(&px);
 	pipex(&px);
 	return (0);
